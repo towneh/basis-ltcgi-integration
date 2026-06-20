@@ -1,5 +1,10 @@
 # Basis LTCGI Integration
 
+> **Deprecated — this repository is no longer maintained.**
+> The package now lives in the Basis framework as
+> [`com.basis.integration.ltcgi`](https://github.com/BasisVR/Basis) and is maintained there.
+> Use the version bundled with Basis; this standalone repository is archived (read-only).
+
 Drives [LTCGI](https://ltcgi.dev/) realtime area lighting from a Basis Media Player, so a
 video screen casts coloured light that matches whatever is playing.
 
