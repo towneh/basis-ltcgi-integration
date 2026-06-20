@@ -9,37 +9,24 @@ shared video texture through its blur chain. This package's `BasisLTCGIVideoAdap
 bridges the two: it copies each video frame into a RenderTexture and hands it to LTCGI, so
 the screen's light updates live with the video.
 
-## Installation
-
-This is a standalone UPM package and lives in this repository under
-`Packages/com.basis.integration.ltcgi`. Add it to your project's `Packages/manifest.json`:
-
-```json
-"com.basis.integration.ltcgi": "https://github.com/towneh/basis-ltcgi-integration.git?path=Packages/com.basis.integration.ltcgi#v0.0.1"
-```
-
-Or via **Window → Package Manager → + → Add package from git URL…**, pasting the same URL.
-
-The package is inert until its two dependencies (below) are also present, so it's safe to add
-to any project — it simply doesn't compile until both are there.
-
 ## Requirements
 
-This package only compiles when both of these are present in the project:
+This package compiles only when both of these are present:
 
-- `com.basis.mediaplayer` — the Basis Media Player
-- `at.pimaker.ltcgi` — LTCGI
+- `com.basis.mediaplayer` — the Basis Media Player, which ships with Basis.
+- `at.pimaker.ltcgi` — [LTCGI](https://github.com/PiMaker/ltcgi). It isn't on a public
+  registry, so add it to your `Packages/manifest.json` (a git URL or a local `file:` clone)
+  before this package will build:
 
-Neither is on a public registry, so add each to your `Packages/manifest.json` (a git URL or a
-local `file:` clone) before this package will build.
+  ```json
+  "at.pimaker.ltcgi": "https://github.com/PiMaker/ltcgi.git"
+  ```
 
-Basis renders with URP. Use the [`towneh/ltcgi`](https://github.com/towneh/ltcgi) fork — it
-provides URP-compatible LTCGI surface shaders (`LTCGI_Surface_v2_URP`, `LTCGI_Simple_URP`) so
-geometry lit by LTCGI renders correctly under URP:
+Until both are present the package is inert — its assembly compiles to nothing — so it is
+safe to leave in any project.
 
-```json
-"at.pimaker.ltcgi": "https://github.com/towneh/ltcgi.git"
-```
+Basis renders with URP. LTCGI's URP-compatible surface shaders (`LTCGI_Surface_v2_URP`,
+`LTCGI_Simple_URP`) let geometry lit by LTCGI render correctly under URP.
 
 ## Setup
 
